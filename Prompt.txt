@@ -1,0 +1,245 @@
+[ROLE]
+You are a Senior Frontend Developer with expertise in HTML, TailwindCSS, JavaScript, React.js, Next.js, Typescript and Zustand. Your task is to build clean and production-quality code suitable as a web development project.
+
+[OBJECTIVE]
+Create a fully functional Expense Tracker web application using only HTML, TailwindCSS, JavaScript, React.js, Next.js, Typescript and Zustand.
+
+The final project should be simple and realistic.
+
+[TECH_STACK]
+- HTML5
+- TailwindCSS
+- JavaScript (ES6+)
+- React.js
+- Next.js
+- Typescript
+- Zustand
+- No another frameworks
+- No another libraries
+- No Vanilla CSS
+- No build tools
+
+[PROJECT_FEATURES]
+Implement the following features:
+
+1. Add a new transaction.
+2. Each transaction must include:
+   - Title/Description
+   - Amount
+   - Type:
+     - Income
+     - Expense
+
+3. Display:
+   - Total Balance
+   - Total Income
+   - Total Expenses
+
+4. Show all transactions in a list.
+
+5. Allow users to delete a transaction.
+
+6. Persist data using LocalStorage.
+
+7. Automatically restore saved transactions when the page reloads.
+
+8. Update all calculations dynamically after every add/delete action.
+
+[UI_REQUIREMENTS]
+Design a modern and clean interface with the following sections:
+
+- Application Header
+- Balance Summary Card
+- Income and Expense Summary Cards
+- Transaction Form
+- Transaction History List
+- Use a Light Theme only.
+- Primary brand color: #4F46E5
+
+The design should:
+- Be responsive.
+- Work well on mobile and desktop.
+- Use CSS Flexbox and/or Grid.
+- Include subtle hover effects.
+- Have clear visual distinction between income and expense items.
+- Use semantic HTML elements.
+
+[FORM_VALIDATION]
+Implement validation rules:
+
+- Title cannot be empty.
+- Amount must be a valid positive number.
+- Transaction type must be selected.
+- Display user-friendly error messages.
+- Prevent invalid submissions.
+
+[JAVASCRIPT_REQUIREMENTS]
+Use clean JavaScript practices:
+
+- Organize the code into small reusable functions.
+- Use:
+  - const and let
+  - Template literals
+  - Array methods
+  - addEventListener
+  - JSON.parse()
+  - JSON.stringify()
+
+Avoid:
+- Global variables whenever possible.
+- Duplicate code.
+- Inline event handlers.
+
+[NEXTJS_REQUIREMENTS]
+Use modern Next.js (App Router) practices:
+
+- Use the App Router (`app/` directory), not the Pages Router.
+- Prefer Server Components by default; mark client components with `"use client"` only when needed (Zustand, forms, LocalStorage, event handlers).
+- Keep LocalStorage and browser APIs inside Client Components.
+- Use `layout.tsx` for the root shell (fonts, theme provider, global styles).
+- Use `page.tsx` as the main Expense Tracker screen entry.
+- Organize UI into reusable components under `components/`.
+- Keep shared types under `types/` and store logic under `store/`.
+- Use Next.js Image/Link only when appropriate; do not over-engineer routing for a single-page tracker.
+- Ensure the app runs with the standard Next.js scripts (`dev`, `build`, `start`).
+
+Avoid:
+- Mixing Pages Router and App Router patterns.
+- Putting LocalStorage access in Server Components.
+- Unnecessary `"use client"` on every file.
+- Hard-coded absolute paths or fragile client-only assumptions.
+
+[TYPESCRIPT_REQUIREMENTS]
+Use strict, clean TypeScript throughout the project:
+
+- Enable and respect strict TypeScript settings in `tsconfig.json`.
+- Define explicit types/interfaces for:
+  - Transaction
+  - TransactionType (`"income" | "expense"`)
+  - Store state and actions
+  - Form input values and validation errors
+- Prefer `type` / `interface` over `any`.
+- Avoid `any`; use unknown only when necessary and narrow it safely.
+- Type component props explicitly.
+- Type Zustand store state and actions.
+- Use typed event handlers and form change/submit handlers.
+- Keep utility/helper return types clear and consistent.
+
+Avoid:
+- Implicit `any`
+- Unsafe type assertions (`as` casting) unless justified
+- Duplicate type definitions across files
+- Untyped LocalStorage parse results (validate/narrow after `JSON.parse`)
+
+[FILE_STRUCTURE]
+Generate the project using exactly this Next.js + TypeScript structure:
+
+/
+├── package.json
+├── tsconfig.json
+├── next.config.ts
+├── next-env.d.ts
+├── postcss.config.mjs
+├── tailwind.config.ts
+├── app/
+│   ├── layout.tsx
+│   ├── page.tsx
+│   └── globals.css
+├── components/
+│   ├── Header.tsx
+│   ├── BalanceSummary.tsx
+│   ├── IncomeExpenseSummary.tsx
+│   ├── TransactionForm.tsx
+│   └── TransactionList.tsx
+├── store/
+│   └── useExpenseStore.ts
+└── types/
+    └── transaction.ts
+
+Notes:
+- `globals.css` may contain only Tailwind directives and minimal CSS variable setup (no Vanilla CSS layout/styling).
+- Styling must use TailwindCSS utility classes and Material-UI components.
+- State management must use Zustand with LocalStorage persistence.
+- Do not create extra files beyond this structure unless required by Next.js tooling itself.
+
+[CODE_OUTPUT]
+Output the complete contents of each file separately using the following format.
+Include every file from [FILE_STRUCTURE], fully working and ready to run:
+
+=== package.json ===
+(code)
+
+=== tsconfig.json ===
+(code)
+
+=== next.config.ts ===
+(code)
+
+=== next-env.d.ts ===
+(code)
+
+=== postcss.config.mjs ===
+(code)
+
+=== tailwind.config.ts ===
+(code)
+
+=== app/layout.tsx ===
+(code)
+
+=== app/page.tsx ===
+(code)
+
+=== app/globals.css ===
+(code)
+
+=== components/Header.tsx ===
+(code)
+
+=== components/BalanceSummary.tsx ===
+(code)
+
+=== components/IncomeExpenseSummary.tsx ===
+(code)
+
+=== components/TransactionForm.tsx ===
+(code)
+
+=== components/TransactionList.tsx ===
+(code)
+
+=== store/useExpenseStore.ts ===
+(code)
+
+=== types/transaction.ts ===
+(code)
+
+Rules for output:
+- Provide the full source code for each file (no placeholders like "// ..." or "rest of code").
+- Keep imports, types, and component wiring consistent across files.
+- Ensure the project can start with `npm install` and `npm run dev`.
+
+[EDUCATIONAL_NOTES]
+After generating the code, include a section titled:
+
+"Code Explanation"
+
+Explain:
+- How transactions are stored.
+- How LocalStorage works.
+- How balances are calculated.
+- How DOM updates occur.
+- Why specific JavaScript functions were created.
+
+Use beginner-friendly language suitable for teaching.
+
+[CODE_QUALITY]
+Ensure that the code is:
+- Readable
+- Well-commented
+- Consistently formatted
+- Easy to extend in future lessons
+
+[FINAL_INSTRUCTION]
+Do not provide pseudocode or partial snippets.
+Generate the complete working project with production-ready code and educational explanations.
