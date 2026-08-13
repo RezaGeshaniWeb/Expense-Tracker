@@ -1,66 +1,72 @@
 # Expense Tracker
 
-یک اپلیکیشن وب ساده و کاربردی برای ثبت و مدیریت درآمدها و هزینه‌ها، ساخته‌شده با **Next.js**، **React**، **TypeScript**، **TailwindCSS** و **Zustand**.
+A simple, practical web app for tracking income and expenses — built with **Next.js**, **React**, **TypeScript**, **TailwindCSS**, and **Zustand**.
+
+## Live Demo
+
+Click the link below to try the project online:
+
+**[Live Demo](https://expense-tracker-eight-taupe-21.vercel.app/)**
 
 ---
 
-## ساخته‌شده با Prompt.txt
+## Built with Prompt.txt
 
-این پروژه بر اساس مشخصات و دستورالعمل‌های فایل [`Prompt.txt`](./Prompt.txt) پیاده‌سازی شده است.
+This project was implemented from the specifications and instructions in [`Prompt.txt`](./Prompt.txt).
 
-فایل `Prompt.txt` یک پرامپت کامل برای تولید این Expense Tracker است و نقش «منبع حقیقت» (source of truth) پروژه را دارد. در آن مشخص شده:
+`Prompt.txt` is the full prompt used to generate this Expense Tracker and acts as the project’s source of truth. It defines:
 
-| بخش | محتوا |
-|-----|--------|
-| **ROLE** | نقش توسعه‌دهنده فرانت‌اند ارشد |
-| **OBJECTIVE** | هدف کلی: ساخت یک Expense Tracker کامل و واقعی |
-| **TECH_STACK** | تکنولوژی‌های مجاز (Next.js، React، TypeScript، TailwindCSS، Zustand و …) |
-| **PROJECT_FEATURES** | ویژگی‌های محصول (افزودن/حذف تراکنش، خلاصه مالی، LocalStorage و …) |
-| **UI_REQUIREMENTS** | الزامات رابط کاربری (تم روشن، رنگ برند `#4F46E5`، ریسپانسیو و …) |
-| **FORM_VALIDATION** | قوانین اعتبارسنجی فرم |
-| **NEXTJS / TYPESCRIPT** | قواعد App Router، Client Components و TypeScript سخت‌گیرانه |
-| **FILE_STRUCTURE** | ساختار دقیق فایل‌ها و پوشه‌ها |
+| Section | Content |
+|---------|---------|
+| **ROLE** | Senior frontend developer role |
+| **OBJECTIVE** | Overall goal: build a complete, realistic Expense Tracker |
+| **TECH_STACK** | Allowed technologies (Next.js, React, TypeScript, TailwindCSS, Zustand, etc.) |
+| **PROJECT_FEATURES** | Product features (add/delete transactions, financial summary, LocalStorage, etc.) |
+| **UI_REQUIREMENTS** | UI requirements (light theme, brand color `#4F46E5`, responsive layout, etc.) |
+| **FORM_VALIDATION** | Form validation rules |
+| **NEXTJS / TYPESCRIPT** | App Router rules, Client Components, and strict TypeScript practices |
+| **FILE_STRUCTURE** | Exact file and folder structure |
 
-اگر می‌خواهید ببینید این اپلیکیشن با چه معیارهایی طراحی و کدنویسی شده، ابتدا `Prompt.txt` را بخوانید؛ کد فعلی پروژه همان مشخصات را دنبال می‌کند.
-
----
-
-## ویژگی‌ها
-
-- افزودن تراکنش جدید (عنوان، مبلغ، نوع: درآمد یا هزینه)
-- نمایش **موجودی کل**، **مجموع درآمد** و **مجموع هزینه‌ها**
-- لیست تاریخچه تراکنش‌ها
-- حذف تراکنش
-- ذخیره‌سازی در **LocalStorage** و بازیابی خودکار پس از رفرش صفحه
-- به‌روزرسانی پویای محاسبات بعد از هر افزودن یا حذف
-- اعتبارسنجی فرم با پیام خطای واضح
-- رابط کاربری مدرن، تم روشن و ریسپانسیو
+To see the criteria this app was designed and coded against, start with `Prompt.txt` — the current codebase follows those specs.
 
 ---
 
-## تکنولوژی‌ها
+## Features
+
+- Add a new transaction (title, amount, type: income or expense)
+- Display **total balance**, **total income**, and **total expenses**
+- Transaction history list
+- Delete a transaction
+- Persist data in **LocalStorage** and restore it automatically on page reload
+- Recalculate totals dynamically after every add or delete
+- Form validation with clear error messages
+- Modern, light-theme, responsive UI
+
+---
+
+## Tech Stack
 
 - [Next.js](https://nextjs.org/) (App Router)
 - [React](https://react.dev/)
 - [TypeScript](https://www.typescriptlang.org/)
 - [TailwindCSS](https://tailwindcss.com/)
-- [Zustand](https://zustand-demo.pmnd.rs/) (همراه با persistence روی LocalStorage)
+- [Zustand](https://zustand-demo.pmnd.rs/) (with LocalStorage persistence)
 
 ---
 
-## ساختار پروژه
+## Project Structure
 
 ```
 /
-├── Prompt.txt                 # پرامپت اصلی ساخت پروژه
+├── Prompt.txt                 # Main prompt used to build the project
 ├── package.json
 ├── tsconfig.json
 ├── next.config.ts
 ├── postcss.config.mjs
 ├── app/
-│   ├── layout.tsx             # شل اصلی (فونت، متادیتا، استایل سراسری)
-│   ├── page.tsx               # صفحه اصلی Expense Tracker
-│   └── globals.css            # دستورات Tailwind و متغیرهای حداقلی
+│   ├── layout.tsx             # Root shell (fonts, metadata, global styles)
+│   ├── page.tsx               # Main Expense Tracker screen
+│   └── globals.css            # Tailwind directives and minimal CSS variables
 ├── components/
 │   ├── Header.tsx
 │   ├── BalanceSummary.tsx
@@ -68,61 +74,61 @@
 │   ├── TransactionForm.tsx
 │   └── TransactionList.tsx
 ├── store/
-│   └── useExpenseStore.ts     # استور Zustand + LocalStorage
+│   └── useExpenseStore.ts     # Zustand store + LocalStorage
 └── types/
-    └── transaction.ts         # تایپ‌ها و اعتبارسنجی داده ذخیره‌شده
+    └── transaction.ts         # Types and stored-data validation
 ```
 
-این ساختار مطابق بخش `FILE_STRUCTURE` در `Prompt.txt` است.
+This layout matches the `FILE_STRUCTURE` section in `Prompt.txt`.
 
 ---
 
-## پیش‌نیازها
+## Prerequisites
 
-- Node.js (نسخه ۱۸ یا بالاتر پیشنهاد می‌شود)
+- Node.js (v18 or newer recommended)
 - npm
 
 ---
 
-## راه‌اندازی
+## Getting Started
 
 ```bash
-# نصب وابستگی‌ها
+# Install dependencies
 npm install
 
-# اجرای محیط توسعه
+# Run the development server
 npm run dev
 ```
 
-سپس در مرورگر به آدرس [http://localhost:3000](http://localhost:3000) بروید.
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### سایر دستورات
+### Other scripts
 
 ```bash
-# ساخت نسخه production
+# Production build
 npm run build
 
-# اجرای نسخه build‌شده
+# Run the production build
 npm run start
 
-# بررسی lint
+# Lint
 npm run lint
 ```
 
 ---
 
-## نحوه کار (خلاصه)
+## How It Works (Overview)
 
-1. **فرم تراکنش** عنوان، مبلغ و نوع (Income / Expense) را می‌گیرد و قبل از ثبت اعتبارسنجی می‌کند.
-2. **Zustand store** تراکنش‌ها را نگه می‌دارد و با middleware مربوط به `persist` آن‌ها را در LocalStorage ذخیره می‌کند.
-3. **خلاصه مالی** (موجودی، درآمد، هزینه) از روی لیست تراکنش‌ها محاسبه و به‌صورت خودکار به‌روز می‌شود.
-4. **لیست تراکنش‌ها** امکان مشاهده و حذف هر آیتم را می‌دهد؛ بعد از حذف، محاسبات دوباره به‌روز می‌شوند.
+1. **Transaction form** collects title, amount, and type (Income / Expense), and validates input before submit.
+2. **Zustand store** holds transactions and uses the `persist` middleware to save them in LocalStorage.
+3. **Financial summary** (balance, income, expenses) is derived from the transaction list and updates automatically.
+4. **Transaction list** lets you view and delete items; totals refresh after each delete.
 
 ---
 
-## رنگ‌بندی UI
+## UI Colors
 
-| مورد | مقدار |
+| Item | Value |
 |------|--------|
-| تم | Light فقط |
-| رنگ برند اصلی | `#4F46E5` |
+| Theme | Light only |
+| Primary brand color | `#4F46E5` |
